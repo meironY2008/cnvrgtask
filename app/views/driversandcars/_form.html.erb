@@ -1,0 +1,28 @@
+<%= form_with(model: driversandcar) do |form| %>
+  <% if driversandcar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(driversandcar.errors.count, "error") %> prohibited this driversandcar from being saved:</h2>
+
+      <ul>
+        <% driversandcar.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  
+    <%= form.label :driver_id %>
+    <%# <%= form.number_field :driver_id %>
+    <%= form.select(:driver_id, Driver.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+  </div>
+
+    <div class="field">
+    <%= form.label :car_id %>
+    <%= form.select(:car_id, Car.all.collect {|u| [u.title, u.id]}, :prompt => 'Select') %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

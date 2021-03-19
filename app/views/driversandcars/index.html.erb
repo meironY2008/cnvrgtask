@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Select driver or car</h1>
+ <%= form_with url: "/driversandcars/0/getdrivercar", method: :get do |form| %>
+ <div class="field">
+   <%= form.label :driver_id %>
+   <%= form.select(:driver_id, Driver.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :car_id %>
+    <%= form.select(:car_id, Car.all.collect {|u| [u.title, u.id]}, :prompt => 'Select') %>
+  </div>
+ <%= form.submit "Submit" %>
+<% end %>
+
+
+<br>
