@@ -1,6 +1,7 @@
 # README
 
 # Meiron Yotvat - cnvrg task
-* to run the app you need run migrate
-* bundle install
-* rails server
+* clone this repo
+* run bundle install
+* run rails db:migrate
+* run rails server
